@@ -11,6 +11,6 @@ def count_valid_emails(emails):
         try:
             validate_email(email, check_deliverability=False)
             count += 1
-        except:        # if an error occurred, then it is invalid.
+        except (ValueError, TypeError):   # if an error occurred, then it is invalid.
             continue
     return count
